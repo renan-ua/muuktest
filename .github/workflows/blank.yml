@@ -23,5 +23,9 @@ jobs:
       with:
         repository: 'muuklabs/executor'
         path: 'executor'
-    - run: |
-        cp key.pub executor
+    - run: cp key.pub executor
+    - working-directory: executor
+      run: |
+        ls
+        python mkcli.py -p tag -t TC6550 -browser chrome
+      
