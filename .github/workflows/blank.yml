@@ -24,9 +24,14 @@ jobs:
         repository: 'muuklabs/executor'
         path: 'executor'
     - run: cp key.pub executor
-    - working-directory: executor
+    - name: Chrome
+      working-directory: executor
       run: |
-        ls
+        export DISPLAY=:1
+        python mkcli.py -p tag -t TC6550 -browser chrome
+    - name: Firefox
+      working-directory: executor
+      run: |
         export DISPLAY=:1
         python mkcli.py -p tag -t TC6550 -browser firefox
     - uses: actions/upload-artifact@v1.0.0
