@@ -27,12 +27,14 @@ jobs:
     - name: Chrome
       working-directory: executor
       run: |
-        export DISPLAY=:1
+        Xvfb :99 -screen 1 1280x1024x16 -nolisten tcp -fbdir /var/run > /dev/null 2>&1 &
+        export DISPLAY=:99
         python mkcli.py -p tag -t TC6550 -browser chrome
     - name: Firefox
       working-directory: executor
       run: |
-        export DISPLAY=:1
+        Xvfb :99 -screen 1 1280x1024x16 -nolisten tcp -fbdir /var/run > /dev/null 2>&1 &
+        export DISPLAY=:99
         python mkcli.py -p tag -t TC6550 -browser firefox
     - uses: actions/upload-artifact@v1.0.0
       with:
