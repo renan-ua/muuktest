@@ -19,6 +19,9 @@ jobs:
         python -V
         java -version
         pip3 install requests
+    - uses: actions/checkout@v2-beta
+      with:
+        repository: 'muuklabs/executor'
+        path: 'executor'
     - run: |
-        git clone git@github.com:muuklabs/executor.git
         cp key.pub executor
