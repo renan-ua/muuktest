@@ -27,5 +27,10 @@ jobs:
     - working-directory: executor
       run: |
         ls
+        export DISPLAY=:1
         python mkcli.py -p tag -t TC6550 -browser firefox
+    - uses: actions/upload-artifact@v1.0.0
+      with:
+        name: reports
+        path: executor/build/reports
       
