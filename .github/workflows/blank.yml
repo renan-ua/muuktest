@@ -27,5 +27,5 @@ jobs:
     - working-directory: executor
       run: |
         ls
-        python mkcli.py -p tag -t TC6550 -browser chrome
+        python mkcli.py -p tag -t TC6550 -browser firefox
       
